@@ -4,13 +4,6 @@ import os
 from time import sleep
 
 
-def pick_random_word():
-    word = random.choice(words)
-    while " " in word or "-" in word or len(word) < 3:
-        word = random.choice(words)
-    return word
-
-
 HANGMAN_BODY = {
     8: "--------\n|      |\n|      O\n|     \|/\n|      |\n|     /|\ \n|\n|\n--------",
     7: "--------\n|      |\n|      O\n|     \|/\n|      |\n|      |\ \n|\n|\n--------",
@@ -22,6 +15,13 @@ HANGMAN_BODY = {
     1: "--------\n|      |\n|      O\n|        \n|       \n|         \n|\n|\n--------",
     0: "--------\n|      |\n|       \n|        \n|       \n|         \n|\n|\n--------",
 }
+
+
+def pick_random_word():
+    word = random.choice(words)
+    while " " in word or "-" in word or len(word) < 3:
+        word = random.choice(words)
+    return word
 
 
 def display_current_state(string, word, life):
