@@ -69,10 +69,10 @@ while run:
     players_string[0] = word[0]
     players_string[-1] = word[-1]
 
-    life = 8
+    life = 0
     while True:
-        if life == 0:
-            game_over_scene(0, word, players_string, 0)
+        if life == 8:
+            game_over_scene(0, word, players_string, life)
             break
         if complete(players_string):
             game_over_scene(1, word, players_string, life)
@@ -84,7 +84,7 @@ while run:
             word[index] = word[index].upper()
             players_string[index] = user_input
         else:
-            life -= 1
+            life += 1
 
     play_again = input("Want to play again? (y/n): ")
     if play_again == "n":
